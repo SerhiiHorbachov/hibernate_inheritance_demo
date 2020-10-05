@@ -1,10 +1,20 @@
 package com.example.hibernate_demo.model;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "person_type")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;
+
+    public Person() {
+    }
 
     public Person(long id, String firstName, String lastName) {
         this.id = id;

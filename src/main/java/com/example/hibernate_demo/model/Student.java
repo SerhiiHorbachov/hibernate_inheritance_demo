@@ -1,8 +1,16 @@
 package com.example.hibernate_demo.model;
 
-public class Student extends Person{
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Student")
+public class Student extends Person {
 
     private long groupId;
+
+    public Student() {
+    }
 
     public Student(long id, String firstName, String lastName, long groupId) {
         super(id, firstName, lastName);
