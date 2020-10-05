@@ -1,8 +1,19 @@
 package com.example.hibernate_demo.model;
 
-public class Student extends Person{
+import javax.persistence.Entity;
+
+@Entity
+public class Student extends Person {
 
     private long groupId;
+
+    public Student() {
+
+    }
+
+    public Student(long id, String firstName, String lastName) {
+        super(id, firstName, lastName);
+    }
 
     public Student(long id, String firstName, String lastName, long groupId) {
         super(id, firstName, lastName);
