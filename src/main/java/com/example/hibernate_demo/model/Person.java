@@ -1,10 +1,20 @@
 package com.example.hibernate_demo.model;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
     private String firstName;
     private String lastName;
+
+    public Person() {
+    }
 
     public Person(long id, String firstName, String lastName) {
         this.id = id;
